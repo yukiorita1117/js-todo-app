@@ -4,19 +4,20 @@ class ShoppingCart {
     // 商品とその数をもつマップ
     this.items = new Map();
   }
-  // カートに商品を追加する
+  // カートに商品を追加するメソッド
   addItem(item) {
     const count = this.items.get(item) || 0;
     this.items.set(item, count + 1);
   }
-  // カート内の合計金額を返す
+  // カート内の合計金額を返すメソッド
   getTotalPrice() {
     return Array.from(this.items).reduce((total, [item, count]) => {
       return total + item.price * count;
     }, 0);
   }
-  // カートの中身を文字列にして返す
+  // カートの中身を文字列にして返すメソッド
   toString() {
+    //ここはもう配列なので、配列のmapメソッドで配列内をマッピングで置き換える
     return Array.from(this.items)
       .map(([item, count]) => {
         return `${item.name}:${count}`;
