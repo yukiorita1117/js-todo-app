@@ -35,7 +35,7 @@ class EventEmitter {
     //Mapの中身を取り出す
     listenerSet.forEach(listener => {
       console.log("listenerの中身", listener);
-      listener.call(this); //thisはEventEmitter自身
+      listener.call(this); //listenerはEventEmitter自身で、thisはEventEmitterの中身を呼んでる call.js参照
     });
   }
 }
