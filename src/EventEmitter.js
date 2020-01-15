@@ -6,21 +6,23 @@ export class EventEmitter {
   }
 
   /**
-   * 指定したイベントが実行されたときに呼び出されるリスナー関数を登録する
+   * 指定したイベントが実行されたときに呼び出されるリスナー関数を登録するメソッド
    * @param {string} type イベント名
    * @param {Function} listener イベントリスナー
    */
   addEventListener(type, listener) {
     // 指定したイベントに対応するSetを作成しリスナー関数を登録する
     if (!this._listeners.has(type)) {
+      //もしtypeを持ってなかったらSetをnewしてtypeをセットする
       this._listeners.set(type, new Set());
     }
     const listenerSet = this._listeners.get(type);
+    console.log("ここではlistenerはないはず", listenerSet);
     listenerSet.add(listener);
   }
 
   /**
-   * 指定したイベントをディスパッチする
+   * 指定したイベントをディスパッチするメソッド
    * @param {string} type イベント名
    */
   emit(type) {
