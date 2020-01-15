@@ -17,7 +17,7 @@ class EventEmitter {
       this._listeners.set(type, new Set());
     }
     const listenerSet = this._listeners.get(type);
-    console.log("ここではlistenerはないはず", listenerSet);
+    console.log("listenerSetのなかみ", listenerSet); //Set { [Function] }
     listenerSet.add(listener);
   }
 
@@ -27,12 +27,15 @@ class EventEmitter {
    */
   emit(type) {
     // 指定したイベントに対応するSetを取り出し、すべてのリスナー関数を呼び出す
+    console.log(this._listeners); //Map { 'test-event' => Set { [Function], [Function] } }
     const listenerSet = this._listeners.get(type);
     if (!listenerSet) {
       return;
     }
+    //Mapの中身を取り出す
     listenerSet.forEach(listener => {
-      listener.call(this);
+      console.log("listenerの中身", listener);
+      listener.call(this); //thisはEventEmitter自身
     });
   }
 }
