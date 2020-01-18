@@ -9,17 +9,12 @@ export class TodoItemView {
    * @returns {Element}
    */
   createElement(todoItem, { onUpdateTodo, onDeleteTodo }) {
-    // 追加するTodoアイテムの要素(li要素)を作成する (elementはview)
-    // const todoListElement = element`<ul />`;
-    // const todoItemElement = this.todoListModel.getTodoItems();
-
-    // todoItemElement.forEach(item => {
     const todoItemElement = todoItem.completed
       ? element`<li><input type="checkbox" class="checkbox" checked>
-          <s>${item.title}</s>
+          <s>${todoItem.title}</s>
           <button class="delete">x</button></input></li>`
       : element`<li><input type="checkbox" class="checkbox">
-          ${item.title}
+          ${todoItem.title}
           <button class="delete">x</button></input></li>`;
 
     // クラス名checkboxを持つ要素を取得
@@ -30,15 +25,15 @@ export class TodoItemView {
       // ここでモデルを更新する処理を呼ぶ
       // 指定したTodoアイテムの完了状態を反転させる → completedの切り替え
       onUpdateTodo({
-        id: item.id,
-        completed: !item.completed
+        id: todoItem.id,
+        completed: !todoItem.completed
       });
     });
     // 削除ボタン(x)をクリック時にTodoListModelからアイテムを削除する
     const deleteButtonElement = todoItemElement.querySelector(".delete");
     deleteButtonElement.addEventListener("click", () => {
       onDeleteTodo({
-        id: item.id
+        id: todoItem.id
       });
     });
     // 作成したTodoアイテムのHTML要素を返す

@@ -1,4 +1,5 @@
 import { element } from "./html-util.js";
+import { TodoItemView } from "./todoItemView.js";
 
 export class TodoListView {
   /**
@@ -11,11 +12,10 @@ export class TodoListView {
   createElement(todoItems, { onUpdateTodo, onDeleteTodo }) {
     // 追加するTodoアイテムの要素(li要素)を作成する (elementはview)
     const todoListElement = element`<ul />`;
-    const todoItems = this.todoListModel.getTodoItems();
 
     todoItems.forEach(todoItem => {
       const todoItemView = new TodoItemView();
-      todoItemElement = todoItemView.createElement(todoItem, {
+      const todoItemElement = todoItemView.createElement(todoItem, {
         onUpdateTodo,
         onDeleteTodo
       });

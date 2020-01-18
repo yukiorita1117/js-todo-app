@@ -1,7 +1,7 @@
-import { element, render } from "./view/html-util.js";
+import { render } from "./view/html-util.js";
 import { TodoListModel } from "./model/TodoListModel.js";
 import { TodoItemModel } from "./model/TodoItemModel.js";
-import { TodoItemView } from "./view/todoitemView.js";
+import { TodoListView } from "./view/todoListView.js";
 
 export class App {
   constructor() {
