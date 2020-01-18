@@ -12,7 +12,7 @@ export class App {
    * Todoを追加時に呼ばれるリスナー関数
    * @param {string} title
    */
-  handleAdd({ title }) {
+  handleAdd(title) {
     this.todoListModel.addTodo(
       new TodoItemModel({
         title,
@@ -31,7 +31,7 @@ export class App {
    * Todoを削除時に呼ばれるリスナー関数
    * @param {{ id: number }}
    */
-  handleDelete({ id }) {
+  handleDelete(id) {
     this.todoListModel.deleteTodo(id);
   }
 
