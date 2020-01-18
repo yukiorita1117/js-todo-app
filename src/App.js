@@ -16,9 +16,9 @@ export class App {
 
     //状態が更新されたら呼ばれる
     this.todoListModel.onChange(() => {
-      // // 追加するTodoアイテムの要素(li要素)を作成する (elementはview)
-      // const todoListElement = element`<ul />`;
-      // const todoItems = this.todoListModel.getTodoItems();
+      // 追加するTodoアイテムの要素(li要素)を作成する (elementはview)
+      const todoListElement = element`<ul />`;
+      const todoItems = this.todoListModel.getTodoItems();
       todoItems.forEach(item => {
         //   const todoItemElement = item.completed
         //     ? element`<li><input type="checkbox" class="checkbox" checked>
@@ -29,7 +29,7 @@ export class App {
         //     <button class="delete">x</button></input></li>`;
 
         // クラス名checkboxを持つ要素を取得
-        const inputCheckboxElement = todoItemElement.querySelector(".checkbox");
+        // const inputCheckboxElement = todoItemElement.querySelector(".checkbox");
         // console.log("todoItemElementの中身", todoItemElement);
         // console.log("inputCheckboxElementの中身", inputCheckboxElement);
 
