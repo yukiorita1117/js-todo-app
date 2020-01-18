@@ -8,6 +8,33 @@ export class App {
     //TodoListの初期化を行う
     this.todoListModel = new TodoListModel();
   }
+  /**
+   * Todoを追加時に呼ばれるリスナー関数
+   * @param {string} title
+   */
+  handleAdd({ title }) {
+    this.todoListModel.addTodo(
+      new TodoItemModel({
+        title: inputElement.value,
+        completed: false
+      })
+    );
+  }
+  /**
+   * Todoの状態を更新時に呼ばれるリスナー関数
+   * @param {{ id:number, completed: boolean }}
+   */
+  handleUpdate({ id, completed }) {
+    this.todoListModel.updateTodo({ id, completed });
+  }
+  /**
+   * Todoを削除時に呼ばれるリスナー関数
+   * @param {{ id: number }}
+   */
+  handleDelete({ id }) {
+    this.todoListModel.deleteTodo(id);
+  }
+
   //マウントしてくれるメソッドを定義
   mount() {
     const formElement = document.querySelector("#js-form");
@@ -27,11 +54,11 @@ export class App {
       const todoListElement = todoListView.createElement(todoItems, {
         // Todoアイテムが更新イベントが発生したときによばれるリスナー関数
         onUpdateTodo: ({ id, completed }) => {
-          this.todoListModel.updateTodo({ id, completed });
+          this.handleUpdate({ id, completed });
         },
         // Todoアイテムが削除イベントが発生したときによばれるリスナー関数
         onDeleteTodo: id => {
-          this.todoListModel.deleteTodo(id);
+          this.handleDelete(id);
         }
       });
 
@@ -47,12 +74,7 @@ export class App {
       event.preventDefault();
 
       // 新しいTodoItemをTodoListへ追加する
-      this.todoListModel.addTodo(
-        new TodoItemModel({
-          title: inputElement.value,
-          completed: false
-        })
-      );
+      this.handleAdd(inputElement.value);
 
       // 入力欄を空文字列にしてリセットする
       inputElement.value = "";
