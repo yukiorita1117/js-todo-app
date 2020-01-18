@@ -34,6 +34,13 @@ export class TodoItemView {
           completed: !item.completed
         });
       });
+      // 削除ボタン(x)をクリック時にTodoListModelからアイテムを削除する
+      const deleteButtonElement = todoItemElement.querySelector(".delete");
+      deleteButtonElement.addEventListener("click", () => {
+        onDeleteTodo({
+          id: item.id
+        });
+      });
     });
   }
 }

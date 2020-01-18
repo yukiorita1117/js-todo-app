@@ -44,13 +44,13 @@ export class App {
         //   });
         // });
 
-        // 削除ボタン(x)をクリック時にTodoListModelからアイテムを削除する
-        const deleteButtonElement = todoItemElement.querySelector(".delete");
-        deleteButtonElement.addEventListener("click", () => {
-          this.todoListModel.deleteTodo({
-            id: item.id
-          });
-        });
+        // // 削除ボタン(x)をクリック時にTodoListModelからアイテムを削除する
+        // const deleteButtonElement = todoItemElement.querySelector(".delete");
+        // deleteButtonElement.addEventListener("click", () => {
+        //   this.todoListModel.deleteTodo({
+        //     id: item.id
+        //   });
+        // });
 
         todoListElement.appendChild(todoItemElement);
       });
