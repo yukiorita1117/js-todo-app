@@ -15,7 +15,7 @@ export class App {
   handleAdd({ title }) {
     this.todoListModel.addTodo(
       new TodoItemModel({
-        title: inputElement.value,
+        title,
         completed: false
       })
     );
