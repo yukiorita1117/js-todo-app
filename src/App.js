@@ -26,8 +26,8 @@ export class App {
 
         // クラス名checkboxを持つ要素を取得
         const inputCheckboxElement = todoItemElement.querySelector(".checkbox");
-        console.log("todoItemElementの中身", todoItemElement);
-        console.log("inputCheckboxElementの中身", inputCheckboxElement);
+        // console.log("todoItemElementの中身", todoItemElement);
+        // console.log("inputCheckboxElementの中身", inputCheckboxElement);
 
         // `<input type="checkbox">`のチェックが変更されたときに呼ばれるイベントリスナーを登録
         inputCheckboxElement.addEventListener("change", () => {
