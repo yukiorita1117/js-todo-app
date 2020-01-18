@@ -16,7 +16,7 @@ export class App {
 
     //状態が更新されたら呼ばれる
     this.todoListModel.onChange(() => {
-      // 追加するTodoアイテムの要素(li要素)を作成する
+      // 追加するTodoアイテムの要素(li要素)を作成する (elementはview)
       const todoListElement = element`<ul />`;
       const todoItems = this.todoListModel.getTodoItems();
       todoItems.forEach(item => {
@@ -54,7 +54,7 @@ export class App {
 
         todoListElement.appendChild(todoItemElement);
       });
-      // containerElementの中身をtodoListElementで上書きする
+      // containerElementの中身をtodoListElementで上書きする(view)
       render(todoListElement, containerElement);
       todoItemCountElement.textContent = `Todoアイテム数: ${this.todoListModel.getTotalCount()}`;
     });
