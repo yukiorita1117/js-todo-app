@@ -1,6 +1,7 @@
 import { element, render } from "./view/html-util.js";
 import { TodoListModel } from "./model/TodoListModel.js";
 import { TodoItemModel } from "./model/TodoItemModel.js";
+import { TodoItemView } from "./view/todoitemView.js";
 
 export class App {
   constructor() {
@@ -16,9 +17,23 @@ export class App {
 
     //状態が更新されたら呼ばれる
     this.todoListModel.onChange(() => {
-      // 追加するTodoアイテムの要素(li要素)を作成する (elementはview)
-      const todoListElement = element`<ul />`;
       const todoItems = this.todoListModel.getTodoItems();
+
+      //todoListViewをnewする
+      const todoListView = new TodoListView();
+
+      //todoItemsに対応するTodoListViewを作成する
+      //TodoListViewのcreateElementする
+      const todoListElement = todoListView.createElement(todoItems, {
+        // Todoアイテムが更新イベントが発生したときによばれるリスナー関数
+        onUpdateTodo: ({ id, completed }) => {
+          this.todoListModel.updateTodo({ id, completed });
+        },
+        // Todoアイテムが削除イベントが発生したときによばれるリスナー関数
+        onDeleteTodo: id => {
+          this.todoListModel.deleteTodo(id);
+        }
+      });
 
       // containerElementの中身をtodoListElementで上書きする(view)
       render(todoListElement, containerElement);

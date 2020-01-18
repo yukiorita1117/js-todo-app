@@ -64,9 +64,6 @@ export class TodoListModel extends EventEmitter {
     this.emitChange();
   }
 
-  // ===============================
-  // TodoListModel.jsの既存の実装は省略
-  // ===============================
   /**
    * 指定したidのTodoItemを削除する
    * @param {{ id: number }}
