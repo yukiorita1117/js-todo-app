@@ -32,7 +32,12 @@ export class App {
         // `<input type="checkbox">`のチェックが変更されたときに呼ばれるイベントリスナーを登録
         inputCheckboxElement.addEventListener("change", () => {
           // チェックボックスの表示が変わったタイミングで呼び出される処理
-          // TODO: ここでモデルを更新する処理を呼ぶ
+          // ここでモデルを更新する処理を呼ぶ
+          // 指定したTodoアイテムの完了状態を反転させる → completedの切り替え
+          this.todoListModel.updateTodo({
+            id: item.id,
+            completed: !item.completed
+          });
         });
         todoListElement.appendChild(todoItemElement);
       });
