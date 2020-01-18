@@ -27,12 +27,10 @@ export class App {
         //     : element`<li><input type="checkbox" class="checkbox">
         //     ${item.title}
         //     <button class="delete">x</button></input></li>`;
-
         // クラス名checkboxを持つ要素を取得
         // const inputCheckboxElement = todoItemElement.querySelector(".checkbox");
         // console.log("todoItemElementの中身", todoItemElement);
         // console.log("inputCheckboxElementの中身", inputCheckboxElement);
-
         // // `<input type="checkbox">`のチェックが変更されたときに呼ばれるイベントリスナーを登録
         // inputCheckboxElement.addEventListener("change", () => {
         //   // チェックボックスの表示が変わったタイミングで呼び出される処理
@@ -43,7 +41,6 @@ export class App {
         //     completed: !item.completed
         //   });
         // });
-
         // // 削除ボタン(x)をクリック時にTodoListModelからアイテムを削除する
         // const deleteButtonElement = todoItemElement.querySelector(".delete");
         // deleteButtonElement.addEventListener("click", () => {
@@ -51,8 +48,7 @@ export class App {
         //     id: item.id
         //   });
         // });
-
-        todoListElement.appendChild(todoItemElement);
+        // todoListElement.appendChild(todoItemElement);
       });
       // containerElementの中身をtodoListElementで上書きする(view)
       render(todoListElement, containerElement);
