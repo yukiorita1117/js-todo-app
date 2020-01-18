@@ -23,6 +23,17 @@ export class App {
         const todoItemElement = item.completed
           ? element`<li><input type="checkbox" class="checkbox" checked><s>${item.title}</s></input></li>`
           : element`<li><input type="checkbox" class="checkbox">${item.title}</input></li>`;
+
+        // クラス名checkboxを持つ要素を取得
+        const inputCheckboxElement = todoItemElement.querySelector(".checkbox");
+        console.log("todoItemElementの中身", todoItemElement);
+        console.log("inputCheckboxElementの中身", inputCheckboxElement);
+
+        // `<input type="checkbox">`のチェックが変更されたときに呼ばれるイベントリスナーを登録
+        inputCheckboxElement.addEventListener("change", () => {
+          // チェックボックスの表示が変わったタイミングで呼び出される処理
+          // TODO: ここでモデルを更新する処理を呼ぶ
+        });
         todoListElement.appendChild(todoItemElement);
       });
       // containerElementの中身をtodoListElementで上書きする
