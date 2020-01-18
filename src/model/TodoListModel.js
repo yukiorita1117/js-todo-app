@@ -55,7 +55,7 @@ export class TodoListModel extends EventEmitter {
    */
   updateTodo({ id, completed }) {
     // `id`が一致するTodoItemを見つけ、あるなら完了状態の値を更新する
-    const todoItem = this.item.find(todo => todo.id === id);
+    const todoItem = this.items.find(todo => todo.id === id);
     if (!todoItem) {
       return;
     }
