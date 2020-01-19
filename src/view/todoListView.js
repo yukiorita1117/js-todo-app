@@ -14,6 +14,9 @@ export class TodoListView {
     const todoListElement = element`<ul />`;
 
     todoItems.forEach(todoItem => {
+      if (todoItem.title === "") {
+        return;
+      }
       const todoItemView = new TodoItemView();
       const todoItemElement = todoItemView.createElement(todoItem, {
         onUpdateTodo,
@@ -21,6 +24,7 @@ export class TodoListView {
       });
       todoListElement.appendChild(todoItemElement);
     });
+    // console.log(todoListElement);
     return todoListElement;
   }
 }

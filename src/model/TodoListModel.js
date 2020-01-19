@@ -14,7 +14,12 @@ export class TodoListModel extends EventEmitter {
    * @returns {number}
    */
   getTotalCount() {
-    return this.items.length;
+    const newArray = this.items.filter((obj, index, array) => {
+      return obj.title !== "";
+    });
+    console.log(newArray);
+    const result = newArray;
+    return result.length;
   }
 
   /**
