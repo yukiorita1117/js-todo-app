@@ -17,7 +17,6 @@ export class TodoListModel extends EventEmitter {
     const newArray = this.items.filter((obj, index, array) => {
       return obj.title !== "";
     });
-    console.log(newArray);
     const result = newArray;
     return result.length;
   }

@@ -24,7 +24,6 @@ export class TodoListView {
       });
       todoListElement.appendChild(todoItemElement);
     });
-    // console.log(todoListElement);
     return todoListElement;
   }
 }

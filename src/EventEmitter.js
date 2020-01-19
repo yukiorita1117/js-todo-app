@@ -17,7 +17,6 @@ export class EventEmitter {
       this._listeners.set(type, new Set());
     }
     const listenerSet = this._listeners.get(type);
-    console.log("ここではlistenerはないはず", listenerSet);
     listenerSet.add(listener);
   }
 

@@ -45,8 +45,6 @@ export class App {
     //状態が更新されたら呼ばれる
     this.todoListModel.onChange(() => {
       const todoItems = this.todoListModel.getTodoItems();
-      // console.log(todoItems);
-
       //todoListViewをnewする
       const todoListView = new TodoListView();
 
