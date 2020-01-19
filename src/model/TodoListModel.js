@@ -80,4 +80,18 @@ export class TodoListModel extends EventEmitter {
     });
     this.emitChange();
   }
+
+  /**
+   * 指定したidのTodoItemを削除する
+   * @param {{ id: number }}
+   */
+  favoriteTodo({ id, isFavorite }) {
+    // `id`が一致するTodoItemを見つけ、favorite状態にする
+    const todoItem = this.items.find(todo => todo.id === id);
+    if (!todoItem) {
+      return;
+    }
+    todoItem.isFavorite = isFavorite;
+    this.emitChange();
+  }
 }

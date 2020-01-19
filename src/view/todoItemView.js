@@ -12,9 +12,11 @@ export class TodoItemView {
     const todoItemElement = todoItem.completed
       ? element`<li><input type="checkbox" class="checkbox" checked>
           <s>${todoItem.title}</s>
+          <button class="favorite">★</button>
           <button class="delete">x</button></input></li>`
       : element`<li><input type="checkbox" class="checkbox">
           ${todoItem.title}
+          <button class="favorite">★</button>
           <button class="delete">x</button></input></li>`;
 
     // クラス名checkboxを持つ要素を取得

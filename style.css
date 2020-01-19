@@ -88,6 +88,17 @@ body {
   color: #cc9a9a;
 }
 
+.todo-list li .favorite {
+  position: absolute;
+  top: 9px;
+  right: 56px;
+  bottom: 0;
+  width: 12px;
+  height: 12px;
+  color: #9edd38;
+  font-size: 18px;
+}
+
 .footer {
   color: #777;
   height: 20px;
